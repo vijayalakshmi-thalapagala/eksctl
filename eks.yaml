@@ -7,8 +7,19 @@ metadata:
 
 managedNodeGroups:
 - name: spot
-  instanceTypes: ["t3.medium","t3.large","c5.large","c5a.large","c5n.large","m5.large","m5a.large"]
   spot: true
+  instanceTypes: 
+    - t3.medium
+    - t3.large
+    - m5.large
+    - m5a.large
+    - c5.large
+    - c5a.large
+    - c5n.large
   desiredCapacity: 2
   minSize: 2
   maxSize: 4
+  labels: { lifecycle: spot }
+  tags:
+    k8s.io/cluster-autoscaler/enabled: "true"
+    k8s.io/cluster-autoscaler/roboshop: "owned"
