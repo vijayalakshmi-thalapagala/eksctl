@@ -1,5 +1,3 @@
-# spot-cluster.yaml
-
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -8,7 +6,8 @@ metadata:
   region: us-east-1
 
 managedNodeGroups:
-- name: spot
-  instanceTypes: ["c3.large","c4.large","c5.large","c5d.large","c5n.large","c5a.large"]
-  spot: true
+- name: ondemand
+  instanceTypes: ["t3.medium","t3.large","m5.large","m6i.large","c5.large","c6i.large","r5.large","r6i.large"]
   desiredCapacity: 2
+  minSize: 2
+  maxSize: 4
