@@ -1,5 +1,3 @@
-# spot-cluster.yaml
-
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -8,7 +6,10 @@ metadata:
   region: us-east-1
 
 managedNodeGroups:
-- name: spot
-  instanceTypes: t3.micro
+- name: free-tier
+  instanceTypes: 
+  - t3.micro
+  desiredCapacity: 1
+  minSize: 1
+  maxSize: 1
   spot: true
-  desiredCapacity: 2
